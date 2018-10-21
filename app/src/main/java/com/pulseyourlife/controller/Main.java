@@ -10,6 +10,7 @@ import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.pulseyourlife.R;
@@ -21,16 +22,36 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setButtonSignUp();
         setLoginText();
     }
 
+    private void setButtonSignUp() {
+        Button btn_signUp = (Button) findViewById(R.id.button_signup);
+
+        btn_signUp.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent signUp = new Intent(Main.this, Register.class);
+                startActivity(signUp);
+            }
+        });
+    }
+
     private void setLoginText(){
-        TextView login_textView = findViewById(R.id.textView_Login);
+        TextView login_textView = (TextView) findViewById(R.id.textView_Login);
 
         String login_text = getString(R.string.main_haveacc) +" "+ getString(R.string.login_name);
 
         SpannableString ss = new SpannableString(login_text);
 
+        setClickableLoginSpan(login_text, ss);
+
+        login_textView.setText(ss);
+        login_textView.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    private void setClickableLoginSpan(String login_text, SpannableString ss){
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
@@ -46,7 +67,5 @@ public class Main extends AppCompatActivity {
         };
 
         ss.setSpan(clickableSpan, login_text.indexOf(getString(R.string.login_name)),login_text.length() , Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        login_textView.setText(ss);
-        login_textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }
