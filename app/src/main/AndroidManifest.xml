@@ -21,7 +21,10 @@
         <activity
             android:name=".Controller.Login"
             android:label="@string/login_name" />
-        
+        <activity android:name=".Controller.Register" android:label="@string/register_name"/>
+        <activity android:name=".Controller.Profile" android:label="@string/profile_name"/>
+        <activity android:name=".Controller.About" android:label="@string/about_name"/>
+        <activity android:name=".Controller.Statistics" android:label="@string/statistics_name" android:noHistory="true"></activity>
     </application>
 
 </manifest>

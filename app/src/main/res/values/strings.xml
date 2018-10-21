@@ -17,4 +17,6 @@
     <string name="profile_gender">Gender</string>
     <string name="profile_height">Height</string>
     <string name="profile_weight">Weight</string>
+    <string name="profile_user_name">Name</string>
+    <string name="profile_user_email">Email</string>
 </resources>
