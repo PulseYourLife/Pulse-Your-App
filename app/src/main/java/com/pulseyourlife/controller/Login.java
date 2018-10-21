@@ -26,7 +26,9 @@ public class Login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                startActivity(new Intent(Login.this, Statistics.class));
+                Intent home = new Intent(Login.this, Statistics.class);
+                home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(home);
             }
         });
     }

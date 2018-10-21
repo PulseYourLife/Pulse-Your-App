@@ -12,6 +12,7 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.pulseyourlife.R;
 
@@ -45,27 +46,25 @@ public class Main extends AppCompatActivity {
 
         SpannableString ss = new SpannableString(login_text);
 
-        setClickableLoginSpan(login_text, ss);
+        setClickableSpan(login_text, ss, getString(R.string.login_name),Login.class);
 
         login_textView.setText(ss);
         login_textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
-    private void setClickableLoginSpan(String login_text, SpannableString ss){
+    private void setClickableSpan(String text, final SpannableString ss, String stringToSearch, final Class classIntentDestiny){
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                Intent login = new Intent(Main.this, Login.class);
-                startActivity(login);
+                Intent i = new Intent(Main.this, classIntentDestiny);
+                startActivity(i);
             }
-
             @Override
             public void updateDrawState(@NonNull TextPaint ds) {
                 super.updateDrawState(ds);
                 ds.setColor(getResources().getColor(R.color.colorAccent));
             }
         };
-
-        ss.setSpan(clickableSpan, login_text.indexOf(getString(R.string.login_name)),login_text.length() , Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan, text.indexOf(stringToSearch),text.indexOf(stringToSearch)+stringToSearch.length() , Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
 }
