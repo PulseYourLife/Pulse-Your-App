@@ -1,3 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Pulse-Your-App</string>
+    <string name="app_name" translatable="false">Pulse Your Life</string>
+    <string name="statistics_name">Statistics</string>
+    <string name="about_name">About us</string>
+    <string name="profile_name">Profile</string>
+    <string name="register_name">Sign Up</string>
+    <string name="login_name">Log in</string>
+    <string name="login_user">User</string>
+    <string name="login_password">Password</string>
+    <string name="main_haveacc">Already have an account?</string>
+    <string name="register_input_name">Full name</string>
+    <string name="register_input_email">E-mail address</string>
+    <string name="register_input_password">Password</string>
+    <string name="register_input_confirmpassword">Confirm Password</string>
+    <string name="profile_age">Age</string>
+    <string name="profile_gender">Gender</string>
+    <string name="profile_height">Height</string>
+    <string name="profile_weight">Weight</string>
 </resources>

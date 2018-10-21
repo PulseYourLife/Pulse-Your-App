@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="statistics_name">Estadísticas</string>
+    <string name="about_name">Acerca de</string>
+    <string name="profile_name">Perfil</string>
+    <string name="register_name">Registro</string>
+    <string name="login_name">Inicio de sesión</string>
+    <string name="login_user">Usuario</string>
+    <string name="login_password">Contraseña</string>
+    <string name="main_haveacc">¿Ya tienes una cuenta?</string>
+    <string name="register_input_name">Nombre completo</string>
+    <string name="register_input_email">Dirección de correo</string>
+    <string name="register_input_password">Contraseña</string>
+    <string name="register_input_confirmpassword">Confirmar contraseña</string>
+    <string name="profile_age">Edad</string>
+    <string name="profile_gender">Genero</string>
+    <string name="profile_height">Altura</string>
+    <string name="profile_weight">Peso</string>
+</resources>
