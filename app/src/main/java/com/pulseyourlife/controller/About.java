@@ -1,15 +1,15 @@
-package com.pulseyourlife.Controller;
+package com.pulseyourlife.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.pulseyourlife.R;
 
-public class Statistics extends AppCompatActivity {
+public class About extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_statistics);
+        setContentView(R.layout.activity_about);
     }
 }

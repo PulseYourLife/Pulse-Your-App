@@ -1,4 +1,4 @@
-package com.pulseyourlife.Controller;
+package com.pulseyourlife.controller;
 
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;

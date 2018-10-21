@@ -5,8 +5,8 @@
     <string name="profile_name">Perfil</string>
     <string name="register_name">Registro</string>
     <string name="login_name">Inicio de sesión</string>
-    <string name="login_user">Usuario</string>
-    <string name="login_password">Contraseña</string>
+    <string name="login_hint_user">Usuario</string>
+    <string name="login_hint_password">Contraseña</string>
     <string name="main_haveacc">¿Ya tienes una cuenta?</string>
     <string name="register_input_name">Nombre completo</string>
     <string name="register_input_email">Dirección de correo</string>

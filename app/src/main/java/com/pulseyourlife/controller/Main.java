@@ -1,4 +1,4 @@
-package com.pulseyourlife.Controller;
+package com.pulseyourlife.controller;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pulseyourlife.R;
 
@@ -36,7 +35,6 @@ public class Main extends AppCompatActivity {
             @Override
             public void onClick(@NonNull View widget) {
                 Intent login = new Intent(Main.this, Login.class);
-                Toast.makeText(Main.this, "this", Toast.LENGTH_SHORT).show();
                 startActivity(login);
             }
 

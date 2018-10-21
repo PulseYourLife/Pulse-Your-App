@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Controller.Main"
+            android:name=".controller.Main"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,16 +21,31 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.Login"
+            android:name=".controller.Login"
             android:label="@string/login_name">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Controller.Main"/>
+                android:value=".controller.Main" />
         </activity>
-        <activity android:name=".Controller.Statistics" android:label="@string/statistics_name" android:noHistory="true"></activity>
-        <activity android:name=".Controller.Register" android:label="@string/register_name"/>
-        <activity android:name=".Controller.Profile" android:label="@string/profile_name"/>
-        <activity android:name=".Controller.About" android:label="@string/about_name"/>
+        <activity
+            android:name=".controller.Statistics"
+            android:label="@string/statistics_name"
+            android:noHistory="true"></activity>
+        <activity
+            android:name=".controller.Register"
+            android:label="@string/register_name">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.Main" />
+        </activity>
+
+
+        <activity
+            android:name=".controller.Profile"
+            android:label="@string/profile_name" />
+        <activity
+            android:name=".controller.About"
+            android:label="@string/about_name" />
     </application>
 
 </manifest>

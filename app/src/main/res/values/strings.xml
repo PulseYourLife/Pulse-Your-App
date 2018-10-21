@@ -6,8 +6,8 @@
     <string name="profile_name">Profile</string>
     <string name="register_name">Sign Up</string>
     <string name="login_name">Log in</string>
-    <string name="login_user">User</string>
-    <string name="login_password">Password</string>
+    <string name="login_hint_user">User</string>
+    <string name="login_hint_password">Password</string>
     <string name="main_haveacc">Already have an account?</string>
     <string name="register_input_name">Full name</string>
     <string name="register_input_email">E-mail address</string>
