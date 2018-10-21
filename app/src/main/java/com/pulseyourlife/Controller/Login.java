@@ -1,13 +1,15 @@
-package com.pulseyourlife;
+package com.pulseyourlife.Controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Main extends AppCompatActivity {
+import com.pulseyourlife.R;
+
+public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.login);
     }
 }
