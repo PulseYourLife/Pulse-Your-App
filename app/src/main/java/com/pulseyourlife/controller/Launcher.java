@@ -52,13 +52,13 @@ public class Launcher extends AppCompatActivity {
 //        FirebaseUser user = firebaseAuth.getCurrentUser();
         try{
             SharedPreferences shad = getSharedPreferences("user", cont.MODE_PRIVATE);
-            value= shad.getString("User", "stats");
+            value= shad.getString("User", "unlogin");
             Toast toast1 = Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT);
             toast1.show();
         }catch(Exception e ){
             e.printStackTrace();
         }
-        if (!value.equals("stats")) {
+        if (!value.equals("unlogin")) {
             toBeLaunched = new Intent(this,Statistics.class);
         }else{
             toBeLaunched = new Intent(this, Main.class);

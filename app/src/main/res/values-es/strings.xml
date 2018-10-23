@@ -20,4 +20,5 @@
     <string name="profile_user_email">Dirección de correo</string>
     <string name="login_error">Por favor verifique sus credenciales</string>
     <string name="auth_error">Error de autenticacion</string>
+    <string name="register_error">Revisa tus credenciales e intenta de nuevo</string>
 </resources>
