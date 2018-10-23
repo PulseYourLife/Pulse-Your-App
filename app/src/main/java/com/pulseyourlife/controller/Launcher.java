@@ -7,25 +7,34 @@ import android.os.Bundle;
 
 import com.pulseyourlife.R;
 
+import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class Launcher extends AppCompatActivity {
-
+    private String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
         Intent toBeLaunched;
-        String FILENAME = "users_file.txt";
+        String usersFile = "users_file.txt";
+        String passwordsFile = "passwords_file.txt";
+        String currUser = "current_user.txt";
         String cred = "david";
         try {
-            FileOutputStream fos = openFileOutput(FILENAME, Context.MODE_PRIVATE);
+            FileOutputStream fos = openFileOutput(usersFile, Context.MODE_PRIVATE);
             fos.write(cred.getBytes());
             fos.close();
+            FileOutputStream fos2 = openFileOutput(passwordsFile, Context.MODE_PRIVATE);
+            fos2.write(cred.getBytes());
+            fos2.close();
+            FileOutputStream fos3 = openFileOutput(currUser, Context.MODE_PRIVATE);
+            fos3.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,7 +42,13 @@ public class Launcher extends AppCompatActivity {
 //        firebaseAuth = FirebaseAuth.getInstance();
 //
 //        FirebaseUser user = firebaseAuth.getCurrentUser();
-        String user = null;
+        try{
+            BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("current_user.txt")));
+            user = fin.readLine();
+            fin.close();
+        }catch(Exception e ){
+            e.printStackTrace();
+        }
         if (user != null) {
             toBeLaunched = new Intent(this,Statistics.class);
         }else{
