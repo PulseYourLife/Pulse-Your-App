@@ -32,6 +32,7 @@ public class Launcher extends AppCompatActivity {
         String currUser = "current_user.txt";
         String cred = "david";
         String un = "unlogin";
+        cont = this;
         try {
             FileOutputStream fos = openFileOutput(usersFile, Context.MODE_PRIVATE);
             fos.write(cred.getBytes());
@@ -50,12 +51,9 @@ public class Launcher extends AppCompatActivity {
 //
 //        FirebaseUser user = firebaseAuth.getCurrentUser();
         try{
-            SharedPreferences shad = getPreferences(cont.MODE_PRIVATE);
+            SharedPreferences shad = getSharedPreferences("user", cont.MODE_PRIVATE);
             value= shad.getString("User", "stats");
-            Toast toast1 =
-                    Toast.makeText(getApplicationContext(),
-                            value, Toast.LENGTH_SHORT);
-
+            Toast toast1 = Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT);
             toast1.show();
         }catch(Exception e ){
             e.printStackTrace();

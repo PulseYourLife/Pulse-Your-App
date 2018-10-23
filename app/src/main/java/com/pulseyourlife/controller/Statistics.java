@@ -20,11 +20,7 @@ public class Statistics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
         try {
-            BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("current_user.txt")));
-            String user = fin.readLine();
-            fin.close();
-            Toast toast1 = Toast.makeText(getApplicationContext(), user, Toast.LENGTH_SHORT);
-            toast1.show();
+
         }catch(Exception e){
             e.printStackTrace();
         }
