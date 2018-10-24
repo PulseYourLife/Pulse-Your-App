@@ -22,4 +22,7 @@
     <string name="login_error">Please verify your credentials</string>
     <string name="auth_error">Authentication error</string>
     <string name="register_error">Check your credentials and try again</string>
+    <string name="nav_img_description">Profile image</string>
+    <string name="nav_drawer_open" translatable="false">Open nav drawer</string>
+    <string name="nav_drawer_close" translatable="false">Close nav drawer</string>
 </resources>

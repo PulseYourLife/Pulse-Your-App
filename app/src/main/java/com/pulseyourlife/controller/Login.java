@@ -70,9 +70,16 @@ public class Login extends AppCompatActivity {
                     SharedPreferences.Editor editor = shared.edit();
                     editor.putString("User", currentUser);
                     editor.commit();
+                    try{
+                        FileOutputStream fos = openFileOutput("current_user.txt", Context.MODE_PRIVATE);
+                        fos.write(currentUser.getBytes());
+                        fos.close();
+                    }catch(Exception e){
+                        e.printStackTrace();
+                    }
                     Intent home = new Intent(Login.this, Statistics.class);
                     home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                    startActivity(home);
+                    startActivity(home);                                        
                 }else{
                     AlertDialog alertDialog = new AlertDialog.Builder(Login.this).create();
                     alertDialog.setTitle(getString(R.string.auth_error));
