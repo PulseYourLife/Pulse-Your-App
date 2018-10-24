@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity {
                     }catch(Exception e){
                         e.printStackTrace();
                     }
-                    Intent home = new Intent(Login.this, Statistics.class);
+                    Intent home = new Intent(Login.this, Home.class);
                     home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(home);
                 }else{

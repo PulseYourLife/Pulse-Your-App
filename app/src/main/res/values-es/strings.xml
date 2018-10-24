@@ -18,4 +18,5 @@
     <string name="profile_weight">Peso</string>
     <string name="profile_user_name">Nombre</string>
     <string name="profile_user_email">Dirección de correo</string>
+    <string name="nav_img_description">Imagen de perfil</string>
 </resources>
