@@ -19,4 +19,7 @@
     <string name="profile_user_name">Nombre</string>
     <string name="profile_user_email">Dirección de correo</string>
     <string name="nav_img_description">Imagen de perfil</string>
+    <string name="register_error">Revisa tus credenciales e intenta de nuevo</string>
+    <string name="auth_error">Error de autenticacion</string>
+    <string name="login_error">Por favor verifique sus credenciales</string>
 </resources>
