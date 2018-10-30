@@ -1,4 +1,6 @@
 # Pulse-Your-App
+[![CircleCI](https://circleci.com/gh/PulseYourLife/Pulse-Your-App.svg?style=svg)](https://circleci.com/gh/PulseYourLife/Pulse-Your-App)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3aebecbab9bd47a7b8604b7540c49977)](https://www.codacy.com/app/Pulse-Your-Life/Pulse-Your-App?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=PulseYourLife/Pulse-Your-App&amp;utm_campaign=Badge_Grade)
 
 ## Description
 This is the android project of **Pulse Your Life**
