@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".controller.Register"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
 
     <android.support.v7.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/toolbar"
@@ -43,7 +44,7 @@
             android:layout_marginBottom="8dp"
             android:hint="@string/register_input_name"
             android:inputType="text"
-            android:textColorHint="@color/colorSecondaryText"
+            android:textColorHint="@color/colorText"
             />
 
         <EditText
@@ -57,7 +58,7 @@
             android:layout_marginBottom="8dp"
             android:hint="@string/register_input_email"
             android:inputType="textEmailAddress"
-            android:textColorHint="@color/colorSecondaryText"
+            android:textColorHint="@color/colorText"
             />
 
         <EditText
@@ -71,7 +72,7 @@
             android:layout_marginBottom="8dp"
             android:hint="@string/register_input_password"
             android:inputType="textPassword"
-            android:textColorHint="@color/colorSecondaryText"
+            android:textColorHint="@color/colorText"
             />
 
 
@@ -86,7 +87,7 @@
             android:layout_marginBottom="8dp"
             android:hint="@string/register_input_confirmpassword"
             android:inputType="textPassword"
-            android:textColorHint="@color/colorSecondaryText"
+            android:textColorHint="@color/colorText"
             />
 
         <Button

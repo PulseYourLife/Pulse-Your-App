@@ -21,28 +21,58 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="150dp"
         android:text="@string/app_name"
-        android:textColor="@color/colorText"
+        android:textColor="@color/colorAccent"
         android:textSize="30sp"
         android:typeface="monospace" />
 
-    <Button
-        android:id="@+id/button_signup"
+    <EditText
+        android:id="@+id/editText_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:hint="@string/login_hint_user"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/colorText"
+        />
+
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/login_hint_password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/colorText"
+        />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/login_name"
         android:background="@drawable/button_rounded_corner"
-        android:text="@string/register_name"
+        android:textColor="@color/colorPrimaryText"
         />
 
     <TextView
-        android:id="@+id/textView_Login"
+        android:id="@+id/textView_Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -50,8 +80,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="40dp"
-        android:textColor="@color/colorText"
-        />
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/colorText" />
 
 </LinearLayout>

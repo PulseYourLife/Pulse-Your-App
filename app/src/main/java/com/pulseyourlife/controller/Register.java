@@ -69,7 +69,7 @@ public class Register extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    startActivity(new Intent(Register.this, Login.class));
+                    //startActivity(new Intent(Register.this, Main.class));
                     finish();
                 } else {
                     Toast toast1 = Toast.makeText(getApplicationContext(), R.string.register_error, Toast.LENGTH_SHORT);

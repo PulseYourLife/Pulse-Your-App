@@ -8,7 +8,7 @@
     <string name="login_name">Log in</string>
     <string name="login_hint_user">Email</string>
     <string name="login_hint_password">Password</string>
-    <string name="main_haveacc">Already have an account?</string>
+    <string name="main_donthaveacc">Don\'t have an account?</string>
     <string name="register_input_name">Full name</string>
     <string name="register_input_email">E-mail address</string>
     <string name="register_input_password">Password</string>
