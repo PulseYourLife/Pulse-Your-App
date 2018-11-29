@@ -71,10 +71,10 @@ public class Main extends AppCompatActivity {
                 }
                 int indexUser = users.indexOf(currentUser);
                 int indexPassword = users.indexOf(currentPwd);
-                if((indexPassword != -1 && indexPassword != -1) && indexPassword == indexUser ) {
+                if((indexPassword != -1 && indexUser != -1) && indexPassword == indexUser ) {
                     SharedPreferences.Editor editor = shared.edit();
                     editor.putString("User", currentUser);
-                    editor.commit();
+                    editor.apply();
                     Intent home = new Intent(Main.this, Home.class);
                     home.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(home);

@@ -1,5 +1,7 @@
 package com.pulseyourlife.controller;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,13 +11,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.pulseyourlife.R;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-
+    private SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
             navigationView.setCheckedItem(R.id.nav_statistic);
         }
+
+        sharedPreferences = getSharedPreferences("user", this.MODE_PRIVATE);
     }
 
     @Override
@@ -62,6 +67,16 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.nav_profile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Profile()).commit();
                 getSupportActionBar().setTitle(R.string.profile_name);
+                break;
+            case R.id.nav_logout:
+                Toast.makeText(this,  getResources().getString(R.string.logout), Toast.LENGTH_SHORT).show();
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.remove("User");
+                editor.apply();
+                Intent main = new Intent(Home.this, Main.class);
+                main.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(main);
+                finish();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
