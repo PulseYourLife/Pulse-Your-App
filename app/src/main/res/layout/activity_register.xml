@@ -45,6 +45,8 @@
             android:hint="@string/register_input_name"
             android:inputType="text"
             android:textColorHint="@color/colorText"
+            android:background="@drawable/border_style"
+            android:gravity="center"
             />
 
         <EditText
@@ -59,6 +61,8 @@
             android:hint="@string/register_input_email"
             android:inputType="textEmailAddress"
             android:textColorHint="@color/colorText"
+            android:background="@drawable/border_style"
+            android:gravity="center"
             />
 
         <EditText
@@ -73,6 +77,8 @@
             android:hint="@string/register_input_password"
             android:inputType="textPassword"
             android:textColorHint="@color/colorText"
+            android:background="@drawable/border_style"
+            android:gravity="center"
             />
 
 
@@ -88,6 +94,8 @@
             android:hint="@string/register_input_confirmpassword"
             android:inputType="textPassword"
             android:textColorHint="@color/colorText"
+            android:background="@drawable/border_style"
+            android:gravity="center"
             />
 
         <Button
