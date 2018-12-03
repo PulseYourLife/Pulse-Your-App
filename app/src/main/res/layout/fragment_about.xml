@@ -7,4 +7,101 @@
     tools:context=".controller.About"
     android:orientation="vertical">
 
+
+    <Button
+        android:id="@+id/button_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/about_rate"
+        android:background="@drawable/button_rounded_corner"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryText"
+        android:text="@string/about_description" />
+
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:textColor="@color/colorPrimaryText"
+        android:text="@string/about_developersTitle"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/about_brandon"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorLink="@color/colorPrimaryLight"
+        android:autoLink="web"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/about_daniel"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorLink="@color/colorPrimaryLight"
+        android:autoLink="web"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/about_david"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorLink="@color/colorPrimaryLight"
+        android:autoLink="web"
+        android:gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/about_diego"
+        android:textColor="@color/colorPrimaryText"
+        android:textColorLink="@color/colorPrimaryLight"
+        android:autoLink="web"
+        android:gravity="center"/>
+
 </LinearLayout>
