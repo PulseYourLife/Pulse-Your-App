@@ -3,6 +3,7 @@ package com.pulseyourlife.controller;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -38,6 +39,7 @@ public class Statistics extends Fragment {
     private LinearLayout estadistica2;
     private LinearLayout estadistica3;
     private Context context;
+    private Button showTherapy;
     public Statistics() {
     }
 
@@ -52,6 +54,13 @@ public class Statistics extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        showTherapy = (Button) getView().findViewById(R.id.bterapia);
+        showTherapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                getActivity().startActivity(new Intent(getActivity(),Therapy.class));
+            }
+        });
         //setContentView(R.layout.fragment_statistics);
         context = view.getContext();
         estadistica = (LinearLayout) getView().findViewById(R.id.estadistica);
@@ -116,10 +125,6 @@ public class Statistics extends Fragment {
         ColumnaApilada100.SetColorPila(3,32, 178, 170);//segunda pila de columna de color amarillo
         estadistica3.addView(ColumnaApilada100);
 
-    }
-
-    public void showTherapy(View view) {
-        getActivity().startActivity(new Intent(getActivity(),Therapy.class));
     }
 
 

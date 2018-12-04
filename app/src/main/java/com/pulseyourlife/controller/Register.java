@@ -23,8 +23,9 @@ public class Register extends AppCompatActivity {
 
     private EditText emailT, psswdT, cpsswdT, nameT;
     private String email, psswd, cpsswd, name;
-    String usersFile = "users_file.txt";
-    String passwordsFile = "passwords_file.txt";
+    private final String usersFile = "users_file.txt";
+    private final String passwordsFile = "passwords_file.txt";
+    private final String namesFile = "names_file.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +67,12 @@ public class Register extends AppCompatActivity {
                         FileOutputStream fos2 = openFileOutput(passwordsFile, Context.MODE_PRIVATE);
                         fos2.write(psswd.getBytes());
                         fos2.close();
+                        FileOutputStream fos3 = openFileOutput(namesFile, Context.MODE_PRIVATE);
+                        fos3.write(name.getBytes());
+                        fos3.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    //startActivity(new Intent(Register.this, Main.class));
                     finish();
                 } else {
                     Toast toast1 = Toast.makeText(getApplicationContext(), R.string.register_error, Toast.LENGTH_SHORT);
@@ -82,7 +85,6 @@ public class Register extends AppCompatActivity {
 
     private void setToolbarBackButton(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {

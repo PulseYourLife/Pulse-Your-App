@@ -46,15 +46,9 @@ public class Launcher extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        firebaseAuth = FirebaseAuth.getInstance();
-//
-//        FirebaseUser user = firebaseAuth.getCurrentUser();
         try{
             SharedPreferences shad = getSharedPreferences("user", cont.MODE_PRIVATE);
             value= shad.getString("User", "unlogin");
-            Toast toast1 = Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT);
-            toast1.show();
         }catch(Exception e ){
             e.printStackTrace();
         }
