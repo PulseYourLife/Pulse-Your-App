@@ -1,6 +1,7 @@
 package com.pulseyourlife.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
@@ -28,6 +30,9 @@ public class Statistics extends Fragment {
     private LinearLayout estadistica3;
     Context context;
 
+    private Button showDiagnostic;
+
+
     private SharedPreferences sharedPreferences;
 
     @Nullable
@@ -39,6 +44,15 @@ public class Statistics extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        showDiagnostic = getView().findViewById(R.id.bdiagno);
+        showDiagnostic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                getActivity().startActivity(new Intent(getActivity(), Diagnostic.class));
+            }
+        });
+
         //setContentView(R.layout.fragment_statistics);
         context = view.getContext();
 
