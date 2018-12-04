@@ -40,9 +40,9 @@ public class Launcher extends AppCompatActivity {
             FileOutputStream fos2 = openFileOutput(passwordsFile, Context.MODE_PRIVATE);
             fos2.write(cred.getBytes());
             fos2.close();
-            FileOutputStream fos3 = openFileOutput(currUser, Context.MODE_PRIVATE);
-            fos3.write(un.getBytes());
-            fos3.close();
+            // fos3 = openFileOutput(currUser, Context.MODE_PRIVATE);
+            //fos3.write(un.getBytes());
+            //fos3.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

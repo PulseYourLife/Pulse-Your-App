@@ -2,6 +2,7 @@ package com.pulseyourlife.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pulseyourlife.R;
-
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -50,6 +51,13 @@ public class Register extends AppCompatActivity {
                 cpsswd = cpsswdT.getText().toString();
                 name = nameT.getText().toString();
                 ArrayList<String> users = new ArrayList<>();
+
+                SharedPreferences preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                String datos = name + "," + psswd + "," + email;
+                editor.putString("datos", datos);
+                editor.commit();
+
                 try {
                     BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("users_file.txt")));
                     for (String line = fin.readLine(); line != null; line = fin.readLine()) {
@@ -67,9 +75,6 @@ public class Register extends AppCompatActivity {
                         FileOutputStream fos2 = openFileOutput(passwordsFile, Context.MODE_PRIVATE);
                         fos2.write(psswd.getBytes());
                         fos2.close();
-                        FileOutputStream fos3 = openFileOutput(namesFile, Context.MODE_PRIVATE);
-                        fos3.write(name.getBytes());
-                        fos3.close();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

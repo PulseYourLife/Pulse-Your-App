@@ -50,47 +50,23 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         nameNav = (TextView) navigationView.getHeaderView(0).findViewById(R.id.nameNav);
         emailNav = (TextView) navigationView.getHeaderView(0).findViewById(R.id.emailNav);
         imageNav = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.picNav);
-        sharedPreferences = getSharedPreferences("User", this.MODE_PRIVATE);
-        String word = sharedPreferences.getString("User", "");
-        emailNav.setText(word);
-        try {
-            nameNav.setText("nombre: "+getName(word));
-        } catch (IOException e) {
-            e.printStackTrace();
+        sharedPreferences = getSharedPreferences("datosUsuario", this.MODE_PRIVATE);
+        String word = sharedPreferences.getString("datos", "");
+        String[] tokens = word.split(",");
+        SharedPreferences shared =  getSharedPreferences("user", this.MODE_PRIVATE);
+        String value= sharedPreferences.getString("User", "");
+
+        if(tokens.length > 1){
+            emailNav.setText(tokens[2]);
+            nameNav.setText(tokens[0]);
+
         }
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
             navigationView.setCheckedItem(R.id.nav_statistic);
         }
-
-
     }
-    public String getName(String email) throws IOException {
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<String> emails = new ArrayList<>();
-        String name = "";
-        try {
-            BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("names_file.txt")));
-            for (String line = fin.readLine(); line != null; line = fin.readLine()) {
-                names.add(line);
-            }
-            fin.close();
-            BufferedReader fin2 = new BufferedReader(new InputStreamReader(openFileInput("users_file.txt")));
-            for (String line = fin.readLine(); line != null; line = fin.readLine()) {
-                emails.add(line);
-            }
-            fin2.close();
-            int index = emails.indexOf(email);
-            name= names.get(index);
-
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-
-        return name;
-    }
-
     @Override
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START)){

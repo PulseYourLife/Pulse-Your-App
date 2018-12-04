@@ -1,7 +1,10 @@
 package com.pulseyourlife.controller;
 
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +18,7 @@ import android.widget.TextView;
 import com.pulseyourlife.R;
 
 import java.util.HashMap;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Therapy extends AppCompatActivity {
     private HashMap<String, String> therapys;
@@ -30,6 +34,12 @@ public class Therapy extends AppCompatActivity {
         textV  = (TextView) findViewById(R.id.textTherapy);
         imageV  = (ImageView) findViewById(R.id.imageThe);
         nextTh  = (Button) findViewById(R.id.nextThe);
+        nextTh.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                setTherapy();
+            }
+        });
         nThe= 1;
         setToolbarBackButton();
         generateInfo();
@@ -37,11 +47,10 @@ public class Therapy extends AppCompatActivity {
 
     }
 
+
     private int generateStatistics(){
-
-
-
-        return 1;
+        int randomNum = (int)(Math.random() * ((140 - 0) + 1)) + 0;
+        return randomNum;
     }
     private void generateInfo(){
         therapys = new HashMap<>();
