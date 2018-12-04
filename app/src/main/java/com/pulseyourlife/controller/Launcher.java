@@ -40,21 +40,15 @@ public class Launcher extends AppCompatActivity {
             FileOutputStream fos2 = openFileOutput(passwordsFile, Context.MODE_PRIVATE);
             fos2.write(cred.getBytes());
             fos2.close();
-            FileOutputStream fos3 = openFileOutput(currUser, Context.MODE_PRIVATE);
-            fos3.write(un.getBytes());
-            fos3.close();
+            // fos3 = openFileOutput(currUser, Context.MODE_PRIVATE);
+            //fos3.write(un.getBytes());
+            //fos3.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-//        firebaseAuth = FirebaseAuth.getInstance();
-//
-//        FirebaseUser user = firebaseAuth.getCurrentUser();
         try{
             SharedPreferences shad = getSharedPreferences("user", cont.MODE_PRIVATE);
             value= shad.getString("User", "unlogin");
-            Toast toast1 = Toast.makeText(getApplicationContext(), value, Toast.LENGTH_SHORT);
-            toast1.show();
         }catch(Exception e ){
             e.printStackTrace();
         }

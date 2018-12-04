@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.pulseyourlife.R;
-
+import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -25,8 +25,9 @@ public class Register extends AppCompatActivity {
 
     private EditText emailT, psswdT, cpsswdT, nameT;
     private String email, psswd, cpsswd, name;
-    String usersFile = "users_file.txt";
-    String passwordsFile = "passwords_file.txt";
+    private final String usersFile = "users_file.txt";
+    private final String passwordsFile = "passwords_file.txt";
+    private final String namesFile = "names_file.txt";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +52,9 @@ public class Register extends AppCompatActivity {
                 cpsswd = cpsswdT.getText().toString();
                 name = nameT.getText().toString();
                 ArrayList<String> users = new ArrayList<>();
-
-                SharedPreferences preferences = getSharedPreferences("datosUsuario"+name, Context.MODE_PRIVATE);
+                SharedPreferences preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
-                String json = "{ name:" + name + ", password:" + psswd + ", email:" + email + "}";
-                Gson gson = new Gson();  //Instancia Gson.
-                String datos = gson.toJson(json);
+                String datos = name + "," + psswd + "," + email;
                 editor.putString("datos", datos);
                 editor.commit();
 
@@ -80,7 +78,6 @@ public class Register extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    //startActivity(new Intent(Register.this, Main.class));
                     finish();
                 } else {
                     Toast toast1 = Toast.makeText(getApplicationContext(), R.string.register_error, Toast.LENGTH_SHORT);
@@ -93,7 +90,6 @@ public class Register extends AppCompatActivity {
 
     private void setToolbarBackButton(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
