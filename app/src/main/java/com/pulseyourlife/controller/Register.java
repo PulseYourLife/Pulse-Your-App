@@ -2,6 +2,7 @@ package com.pulseyourlife.controller;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.pulseyourlife.R;
 
 import java.io.BufferedReader;
@@ -49,6 +51,15 @@ public class Register extends AppCompatActivity {
                 cpsswd = cpsswdT.getText().toString();
                 name = nameT.getText().toString();
                 ArrayList<String> users = new ArrayList<>();
+
+                SharedPreferences preferences = getSharedPreferences("datosUsuario"+name, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                String json = "{ name:" + name + ", password:" + psswd + ", email:" + email + "}";
+                Gson gson = new Gson();  //Instancia Gson.
+                String datos = gson.toJson(json);
+                editor.putString("datos", datos);
+                editor.commit();
+
                 try {
                     BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("users_file.txt")));
                     for (String line = fin.readLine(); line != null; line = fin.readLine()) {
