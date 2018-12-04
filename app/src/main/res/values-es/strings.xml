@@ -26,4 +26,6 @@
     <string name="about_developersTitle">Equipo de desarrollo</string>
     <string name="about_description">Con este proyecto buscamos ayudar a las personas en el cuidado de su salud, alertar al usuario sobre riesgos, signos y sintomas previos a un evento cardiovascular.\n\nLos desarrolladores de la aplicación conocimos un adulto mayor el cual realizaba ejercicio durante varias horas diariamente pensando que con estos mantendría un buen estado de salud. Lamentablemente un día nos contaron que se había infartado debido a que nunca monitorizaba su frecuencia cardiaca mientras se ejercitaba los familiares se enteraron horas mas tarde, por lo cual esta idea surgió en un equipo de trabajo frente a la necesidad de alertar tanto al paciente como a los familiares que estén en una ubicación remota.</string>
     <string name="about_rate">Calificanos en la Google Play Store</string>
+    <string name="Terapia">Terapia</string>
+    <string name="Diagnostico">Diagnostico</string>
 </resources>

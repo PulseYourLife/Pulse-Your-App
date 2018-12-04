@@ -33,6 +33,7 @@
         </activity>
 
         <activity android:name=".controller.Home" />
+        <activity android:name=".controller.Therapy" />
     </application>
 
 </manifest>

@@ -1,11 +1,13 @@
 package com.pulseyourlife.controller;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +18,18 @@ import android.widget.Toast;
 import com.juang.jplot.PlotBarritas;
 import com.juang.jplot.PlotPlanitoXY;
 import com.pulseyourlife.R;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Statistics extends Fragment {
-
     private PlotPlanitoXY plot;
     private PlotBarritas ColumnaAgrupada;
     private PlotBarritas ColumnaApilada100;;
@@ -26,7 +37,10 @@ public class Statistics extends Fragment {
     private LinearLayout estadistica;
     private LinearLayout estadistica2;
     private LinearLayout estadistica3;
-    Context context;
+    private Context context;
+    public Statistics() {
+    }
+
 
     @Nullable
     @Override
@@ -36,6 +50,7 @@ public class Statistics extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.fragment_statistics);
         context = view.getContext();
@@ -101,6 +116,10 @@ public class Statistics extends Fragment {
         ColumnaApilada100.SetColorPila(3,32, 178, 170);//segunda pila de columna de color amarillo
         estadistica3.addView(ColumnaApilada100);
 
+    }
+
+    public void showTherapy(View view) {
+        getActivity().startActivity(new Intent(getActivity(),Therapy.class));
     }
 
 
