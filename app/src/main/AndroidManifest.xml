@@ -33,6 +33,12 @@
         </activity>
 
         <activity android:name=".controller.Home" />
+        <activity android:name=".controller.Therapy"
+            android:label ="Therapy">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.Home" />
+        </activity>
     </application>
 
 </manifest>

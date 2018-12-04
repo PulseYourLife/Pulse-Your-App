@@ -1,10 +1,14 @@
 package com.pulseyourlife.controller;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,10 +18,19 @@ import com.google.gson.Gson;
 import com.juang.jplot.PlotBarritas;
 import com.juang.jplot.PlotPlanitoXY;
 import com.pulseyourlife.R;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import android.content.SharedPreferences;
 
 public class Statistics extends Fragment {
-
     private PlotPlanitoXY plot;
     private PlotBarritas ColumnaAgrupada;
     private PlotBarritas ColumnaApilada100;;
@@ -26,7 +39,11 @@ public class Statistics extends Fragment {
     private LinearLayout estadistica;
     private LinearLayout estadistica2;
     private LinearLayout estadistica3;
-    Context context;
+    private Context context;
+    private Button showTherapy;
+    public Statistics() {
+    }
+
 
     private SharedPreferences sharedPreferences;
 
@@ -38,11 +55,17 @@ public class Statistics extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        showTherapy = (Button) getView().findViewById(R.id.bterapia);
+        showTherapy.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                getActivity().startActivity(new Intent(getActivity(),Therapy.class));
+            }
+        });
         //setContentView(R.layout.fragment_statistics);
         context = view.getContext();
-
-        //------------------------------------------
 
         estadistica = (LinearLayout) getView().findViewById(R.id.estadistica);
         estadistica2= (LinearLayout) getView().findViewById(R.id.estadistica2);

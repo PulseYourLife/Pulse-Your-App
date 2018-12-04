@@ -11,21 +11,33 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pulseyourlife.R;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     private SharedPreferences sharedPreferences;
+    private TextView nameNav, emailNav;
+    private ImageView imageNav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -35,14 +47,26 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+        nameNav = (TextView) navigationView.getHeaderView(0).findViewById(R.id.nameNav);
+        emailNav = (TextView) navigationView.getHeaderView(0).findViewById(R.id.emailNav);
+        imageNav = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.picNav);
+        sharedPreferences = getSharedPreferences("datosUsuario", this.MODE_PRIVATE);
+        String word = sharedPreferences.getString("datos", "");
+        String[] tokens = word.split(",");
+        SharedPreferences shared =  getSharedPreferences("user", this.MODE_PRIVATE);
+        String value= sharedPreferences.getString("User", "");
+
+        if(tokens.length > 1){
+            emailNav.setText(tokens[2]);
+            nameNav.setText(tokens[0]);
+
+        }
+
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
             navigationView.setCheckedItem(R.id.nav_statistic);
         }
-
-        sharedPreferences = getSharedPreferences("user", this.MODE_PRIVATE);
     }
-
     @Override
     public void onBackPressed() {
         if(drawer.isDrawerOpen(GravityCompat.START)){
