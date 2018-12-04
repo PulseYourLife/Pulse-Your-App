@@ -34,5 +34,5 @@
     <string name="about_description">With this project we want to help the people with the care of the them health, alert to the user about risk, signs and symthoms previous of a cardiovascular event.\n\nThe developers of the application we met an elderly who excercised several hours daily thinking that with these would maintain a good state of health. Unfortunately one day, they told us that he had been infarcted because he never monitored their heart rate while exercising, relatives was informed hours later, so this idea came up from a work team in response to the need to alert both, the patient and his familiars who are in a remote location.</string>
     <string name="about_rate">Rate us on the Google Play Store</string>
     <string name="Terapia" translatable="false">TERAPIA</string>
-    <string name="Diagnostico" translatable="false">Diagnostico</string>    
+    <string name="Diagnostico" translatable="false">Diagnostico</string>
 </resources>
