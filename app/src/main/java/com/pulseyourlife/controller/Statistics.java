@@ -90,12 +90,12 @@ public class Statistics extends Fragment {
         ColumnaApilada100=new PlotBarritas(context,"Tu pulso por dia","Pulsos por dia");
 
         //personalizacion de grafico
-        ColumnaApilada100.ColumnaApilada100(xz,yz,Acot);/*OJO x[] debe tener tamaño i e Acota[] tamaño j. i=filas de y[][] e j=columnas           de y [][]. para este caso i=7 y j=3. si no se tiene cuidado con los tamaño puede provocar errores o que se cierre la app */
+        ColumnaApilada100.ColumnaApilada100(xz,yz,Acot);
         ColumnaApilada100.SetSizeAcot(15);
         ColumnaApilada100.SetSizeTitulo(20);
         ColumnaApilada100.SetSizeTituloY(12);
         ColumnaApilada100.SetHD(true);
-        ColumnaApilada100.SetContorno(0);/*sin contorno mayor a cero aparece el contorno por default es blanco a este metodo solo debe           pasarsele un valor entre 0 y 10 mayor a eso no se toma en cuenta*/
+        ColumnaApilada100.SetContorno(0);
         ColumnaApilada100.SetColorPila(1,0, 128, 128);//primera pila de columna de color hot pink
         ColumnaApilada100.SetColorPila(2,0, 139, 139);//segunda pila de columna de color amarillo
         ColumnaApilada100.SetColorPila(3,32, 178, 170);//segunda pila de columna de color amarillo
