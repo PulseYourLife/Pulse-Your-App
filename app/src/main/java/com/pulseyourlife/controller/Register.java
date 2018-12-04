@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.pulseyourlife.R;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
@@ -51,7 +52,6 @@ public class Register extends AppCompatActivity {
                 cpsswd = cpsswdT.getText().toString();
                 name = nameT.getText().toString();
                 ArrayList<String> users = new ArrayList<>();
-
                 SharedPreferences preferences = getSharedPreferences("datosUsuario", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = preferences.edit();
                 String datos = name + "," + psswd + "," + email;
