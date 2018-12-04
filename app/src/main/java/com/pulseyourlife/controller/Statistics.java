@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
 import com.juang.jplot.PlotBarritas;
 import com.juang.jplot.PlotPlanitoXY;
 import com.pulseyourlife.R;
@@ -40,6 +41,8 @@ public class Statistics extends Fragment {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.fragment_statistics);
         context = view.getContext();
+
+        //------------------------------------------
 
         estadistica = (LinearLayout) getView().findViewById(R.id.estadistica);
         estadistica2= (LinearLayout) getView().findViewById(R.id.estadistica2);
@@ -102,6 +105,18 @@ public class Statistics extends Fragment {
         ColumnaApilada100.SetColorPila(2,0, 139, 139);//segunda pila de columna de color amarillo
         ColumnaApilada100.SetColorPila(3,32, 178, 170);//segunda pila de columna de color amarillo
         estadistica3.addView(ColumnaApilada100);
+
+        //-------------------------------------------
+        SharedPreferences preferences = this.getActivity().getSharedPreferences("datosEstadistica", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        Gson gson = new Gson();  //Instancia Gson.
+        String dia = gson.toJson(y);
+        String semana = gson.toJson(yz);
+        String mes = gson.toJson(yb);
+        editor.putString("diario", dia);
+        editor.putString("semanal", semana);
+        editor.putString("mensual", mes);
+        editor.commit();
     }
 
 
