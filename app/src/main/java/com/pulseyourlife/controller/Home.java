@@ -51,10 +51,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         emailNav = (TextView) navigationView.getHeaderView(0).findViewById(R.id.emailNav);
         imageNav = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.picNav);
         sharedPreferences = getSharedPreferences("User", this.MODE_PRIVATE);
-
-        emailNav.setText("HOLI");
-
-            nameNav.setText("HOLI");
+        String word = sharedPreferences.getString("User", "");
+        emailNav.setText(word);
+        try {
+            nameNav.setText("nombre: "+getName(word));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
@@ -78,7 +81,8 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 emails.add(line);
             }
             fin2.close();
-            name= names.get(emails.indexOf(email));
+            int index = emails.indexOf(email);
+            name= names.get(index);
 
         }catch(Exception e){
             e.printStackTrace();

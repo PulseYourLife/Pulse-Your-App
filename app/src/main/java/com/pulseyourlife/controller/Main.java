@@ -40,7 +40,7 @@ public class Main extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cont = this;
-        shared =  getSharedPreferences("user", cont.MODE_PRIVATE);
+        shared =  getSharedPreferences("User", cont.MODE_PRIVATE);
         setButtonLogIn();
         setRegisterText();
     }
