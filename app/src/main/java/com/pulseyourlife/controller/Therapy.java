@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,18 +20,28 @@ public class Therapy extends AppCompatActivity {
     private HashMap<String, String> therapys;
     private TextView textV ;
     private ImageView imageV;
+    private Button nextTh;
     private int nThe;
+    private int promPulse;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_therapy);
-        nThe= 1;
         textV  = (TextView) findViewById(R.id.textTherapy);
         imageV  = (ImageView) findViewById(R.id.imageThe);
+        nextTh  = (Button) findViewById(R.id.nextThe);
+        nThe= 1;
         setToolbarBackButton();
         generateInfo();
         setTherapy();
 
+    }
+
+    private int generateStatistics(){
+
+
+
+        return 1;
     }
     private void generateInfo(){
         therapys = new HashMap<>();
@@ -43,22 +55,25 @@ public class Therapy extends AppCompatActivity {
 
     }
     private void setTherapy(){
-        int promPulse = 0;
+        promPulse = generateStatistics();
         if(promPulse > 40 && promPulse < 100){
             textV.setText(therapys.get("medium"));
-            imageV.setImageResource(R.drawable.boton_redondo);
+            imageV.setImageResource(R.drawable.medio);
 
         }else if(promPulse > 100){
             if(nThe == 1){
                 textV.setText(therapys.get("high1"));
-                //imageV.setImageResource(R.drawable.alto1);
+                imageV.setImageResource(R.drawable.alto1);
                 nThe++;
             }else if(nThe == 2){
                 textV.setText(therapys.get("high2"));
+                imageV.setImageResource(R.drawable.alto2);
                 nThe++;
             }else {
                 textV.setText(therapys.get("high3"));
-                //BOTON DESHAB
+                imageV.setImageResource(R.drawable.alto3);
+                nextTh.setVisibility(View.INVISIBLE);
+
             }
 
         }else if(promPulse ==0){
@@ -76,13 +91,16 @@ public class Therapy extends AppCompatActivity {
         }else{
             if(nThe == 1){
                 textV.setText(therapys.get("low1"));
+                imageV.setImageResource(R.drawable.bajo1);
                 nThe++;
             }else if(nThe == 2){
                 textV.setText(therapys.get("low2"));
+                imageV.setImageResource(R.drawable.bajo2);
                 nThe++;
             }else {
                 textV.setText(therapys.get("low3"));
-                //BOTON DESHAB
+                imageV.setImageResource(R.drawable.bajo3);
+                nextTh.setVisibility(View.INVISIBLE);
             }
             imageV.setImageResource(R.drawable.boton_redondo);
         }
