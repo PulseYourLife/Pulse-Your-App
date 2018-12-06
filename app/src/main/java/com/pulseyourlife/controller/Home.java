@@ -167,6 +167,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
+            
             case R.id.nav_statistic:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new Statistics()).commit();
                 getSupportActionBar().setTitle(R.string.statistics_name);
