@@ -36,4 +36,5 @@
     <string name="Terapia" >Therapy</string>
     <string name="Diagnostico">Diagnostic</string>
   <string name="next_therapy">Next Therapy</string>
+    <string name="nav_premium">Get Premium!</string>
 </resources>
