@@ -11,18 +11,44 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.pulseyourlife.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import com.google.firebase.auth.*;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+
+import Logic.User;
 
 public class Main extends AppCompatActivity {
 
@@ -34,16 +60,23 @@ public class Main extends AppCompatActivity {
     private EditText editEmail;
     private Context cont;
     private SharedPreferences shared;
+    private FirebaseAuth firebaseAuth;
+    private DatabaseReference userReferenceData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         cont = this;
+        firebaseAuth = FirebaseAuth.getInstance();
         shared =  getSharedPreferences("user", cont.MODE_PRIVATE);
         setButtonLogIn();
         setRegisterText();
+
     }
+
+
 
     private void setButtonLogIn() {
         Button btn_login = (Button) findViewById(R.id.button_login);
@@ -53,7 +86,9 @@ public class Main extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                currentPwd = editPassword.getText().toString();
+                logUser();
+
+                /*currentPwd = editPassword.getText().toString();
                 currentUser = editEmail.getText().toString();
                 try {
                     BufferedReader fin = new BufferedReader(new InputStreamReader(openFileInput("users_file.txt")));
@@ -89,7 +124,7 @@ public class Main extends AppCompatActivity {
                                 }
                             });
                     alertDialog.show();
-                }
+                }*/
             }
         });
 
@@ -123,4 +158,66 @@ public class Main extends AppCompatActivity {
         };
         ss.setSpan(clickableSpan, text.indexOf(stringToSearch),text.indexOf(stringToSearch)+stringToSearch.length() , Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
     }
+
+    public void logUser(){
+        currentPwd = editPassword.getText().toString();
+        currentUser = editEmail.getText().toString();
+        if (TextUtils.isEmpty(currentUser)) {
+            Toast.makeText(this,"Email Field is Empty",Toast.LENGTH_LONG).show();
+
+            return;
+        }
+        else if (TextUtils.isEmpty(currentPwd)) {
+            Toast.makeText(this, "Password Field is Empty\"", Toast.LENGTH_LONG).show();
+            return;
+        }
+        firebaseAuth.signInWithEmailAndPassword(currentUser, currentPwd)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        //checking if success
+                        if (task.isSuccessful()) {
+                            FirebaseUser currentUser = firebaseAuth.getCurrentUser();
+                            String[] welcome = currentUser.getDisplayName().split(";");
+                            Toast.makeText(Main.this, "Welcome: " + welcome[0], Toast.LENGTH_LONG).show();
+
+                            Intent goHome = new Intent(getApplication(), Home.class);
+                            //Bundle userSend = new Bundle();
+                            //userSend.putSerializable("userData",userSend);
+                            startActivity(goHome);
+                            /*userReferenceData = FirebaseDatabase.getInstance().getReference();
+                            final FirebaseUser userDataLoad = currentUser;
+                            userReferenceData.child("Users").addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot snapshot: dataSnapshot.getChildren()){
+                                        if(snapshot.getKey().equals(userDataLoad.getEmail())){
+                                            User loadedUser = dataSnapshot.getValue(User.class);
+                                            Log.e("User DATTTTTTTTTTTA", loadedUser.getName());
+                                            Log.e("User DATTTTTTTTTTTA", loadedUser.getAddress());
+
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });*/
+
+
+
+                        } else {
+
+                            Toast.makeText(Main.this, "Your Email Or Password Are Incorrect", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    }
+                });
+
+    }
+
+
 }
