@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1057208748535",
+    "firebase_url": "https://pulseyourlife-c74fb.firebaseio.com",
+    "project_id": "pulseyourlife-c74fb",
+    "storage_bucket": "pulseyourlife-c74fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057208748535:android:d93e109884ea6876",
+        "android_client_info": {
+          "package_name": "com.pulseyourlife"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057208748535-ukvm9439mjkjm31joio9jsebrcerkrlu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pulseyourlife",
+            "certificate_hash": "4cd72b44daddeaa6c22e9c9893fc45b6ecadea7f"
+          }
+        },
+        {
+          "client_id": "1057208748535-set0na7eiqj3pqueb7uu424g36hitq6t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEAJsNQ0hMxIgNVwUMjzJRkaPu93Ez1eQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057208748535-set0na7eiqj3pqueb7uu424g36hitq6t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
