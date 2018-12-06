@@ -1,14 +1,11 @@
 package com.pulseyourlife.controller;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.pulseyourlife.R;
 
 public class Diagnostic extends AppCompatActivity{
